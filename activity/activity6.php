@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Controller/Ativ1Controller.php';
+require_once '../app/Controller/AtivController.php';
 
 $ativ6Controller = new Ativ1Controller();
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="post">
             <input type="hidden" name="formulario_enviado" value="exercicio6">
-            <input type="text" name="cuboaresta" placeholder="Aresta do cubo" value="5">
+            <input type="number" name="cuboaresta" placeholder="Aresta do cubo">
             <input type="submit" value="Calcular"><br><br>
         </form>
 

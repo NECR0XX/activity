@@ -1,15 +1,14 @@
 <?php
-require_once '../app/Controller/Ativ1Controller.php';
+require_once '../app/Controller/AtivController.php';
 
-$ativ1Controller = new Ativ1Controller();
+$ativController = new Ativ1Controller();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formulario_enviado = $_POST["formulario_enviado"];
 
-    if ($formulario_enviado == "exercicio1") {
-        if (isset($_POST['maria'])) {
-            $Joao = $ativ1Controller->criarAtiv1($_POST['maria']);
-
+    if ($formulario_enviado == "exercicio7") {
+        if (isset($_POST['distancia']) && isset($_POST['tempo'])) {
+            $vm = $ativController->criarAtiv7($_POST['distancia'], $_POST['tempo']);
         }
     }
 }
@@ -28,12 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3>Se você percorrer 120 quilômetros em 2 horas, qual é a sua
         velocidade média?</h3>
 
-        <?php
-        $distancia = 120;
-        $tempo = 2;
-        $vm = $distancia/$tempo;
+        <form method="post">
+            <input type="hidden" name="formulario_enviado" value="exercicio7">
+            <input type="number" name="distancia" placeholder="Distância">
+            <input type="number" name="tempo" placeholder="Tempo">
+            <input type="submit" value="Calcular"><br><br>
+        </form>
 
-        echo "A velocidade média percorrida em 2 horas é de $vm K/h";
+        <?php
+            if (isset($vm)) {
+                echo "A velocidade média percorrida em 2 horas é de $vm K/h";
+            }
         ?>
     </fieldset>
 </body>

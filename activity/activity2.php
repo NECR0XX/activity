@@ -1,3 +1,11 @@
+<?php
+require_once '../app/Controller/AtivController.php';
+
+    $ativController = new Ativ1Controller();
+    $sequencia = [2, 4, 8, 16];
+    $proximos_tres = $ativController->criarAtiv2($sequencia);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +20,9 @@
         <h3>Qual será os 3 próximos números na sequência 2, 4, 8, 16, ...?</h3>
 
         <?php
-            $sequencia = [2, 4, 8, 16];
-
-            for ($i = 4; $i < 7; $i++) {
-                $prox = $sequencia[$i - 1] * 2;
-                $sequencia[] = $prox;
-            }
-
-            echo implode(', ', array_slice($sequencia, 4, 3));
+            echo "Os 3 próximos números na sequência são: " . implode(', ', $proximos_tres);
         ?>
     </fieldset>
+
 </body>
 </html>

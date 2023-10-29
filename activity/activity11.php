@@ -1,3 +1,11 @@
+<?php
+require_once '../app/Controller/AtivController.php';
+
+    $ativController = new Ativ1Controller();
+    $resulpar2 = 4;
+    $totalresul2 = 52;
+    list($probabilidade2, $probabilidademporc2) = $ativController->criarAtiv11($resulpar2, $totalresul2);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +21,7 @@
         um ás (carta de naipe) em uma única tentativa?</h3>
 
         <?php
-        $resulpar = 4;
-        $totalresul = 52;
-
-        $probabilidade = $resulpar/$totalresul;
-        $probabilidademporc = $probabilidade*100;
-
-        echo "A probabilidade de de sair um numéro par é $probabilidade ou $probabilidademporc% ";
+            echo "A probabilidade de de sair um numéro par é $probabilidade2 ou $probabilidademporc2% ";
         ?>
     </fieldset>
 </body>

@@ -1,3 +1,19 @@
+<?php
+require_once '../app/Controller/AtivController.php';
+
+$ativController = new Ativ1Controller();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $formulario_enviado = $_POST["formulario_enviado"];
+
+    if ($formulario_enviado == "exercicio12") {
+        if (isset($_POST['raio'])) {
+            $raio = (int)$_POST['raio'];
+            $area = $ativController->criarAtiv12($raio);
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +28,16 @@
         <h3>Calcule a área da superfície de uma esfera com raio de 6
         centímetros.</h3>
 
-        <?php
-        $pi = 3.14;
-        $raio = 6;
-        $raio2 = $raio**2;
-        $area = $pi*$raio2;
+        <form method="post">
+        <input type="hidden" name="formulario_enviado" value="exercicio12">
+        <input type="number" name="raio" placeholder="Raio">
+        <input type="submit" value="Calcular"><br><br>
+        </form>
 
-        echo "A área da esfera é de $area cm²";
+        <?php
+            if (isset($area)) {
+                echo "A área da esfera é de $area cm²";
+            }
         ?>
     </fieldset>
 </body>

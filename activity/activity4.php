@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Controller/Ativ1Controller.php';
+require_once '../app/Controller/AtivController.php';
 
 $ativController = new Ativ1Controller();
 
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($formulario_enviado == "exercicio4") {
         if (isset($_POST['base']) && isset($_POST['altura'])) {
-            $area_triang = $ativController->calcularAreaTriangulo($_POST['base'], $_POST['altura']);
+            $area_triang = $ativController->criarAtiv4($_POST['base'], $_POST['altura']);
         }
     }
 }
@@ -25,12 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <fieldset>
         <legend><h2>GEOMETRIA</h2></legend>
-        <h3>Encontre a área de um triângulo com base ? metros e altura ? metros.</h3>
+        <h3>Encontre a área de um triângulo com base 8 metros e altura 6 metros.</h3>
 
         <form method="post">
             <input type="hidden" name="formulario_enviado" value="exercicio4">
-            <input type="text" name="base" placeholder="Base do triângulo">
-            <input type="text" name="altura" placeholder="Altura do triângulo">
+            <input type="number" name="base" placeholder="Base do triângulo">
+            <input type="number" name="altura" placeholder="Altura do triângulo">
             <input type="submit" value="Calcular"><br><br>
         </form>
 

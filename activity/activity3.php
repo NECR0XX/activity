@@ -1,3 +1,11 @@
+<?php
+require_once '../app/Controller/AtivController.php';
+
+    $ativController = new Ativ1Controller();
+    $resulpar = 3;
+    $totalresul = 6;
+    list($probabilidade, $probabilidademporc) = $ativController->criarAtiv3($resulpar, $totalresul);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +21,7 @@
         número ímpar?</h3>
 
         <?php
-        $resulpar = 3;
-        $totalresul = 6;
-
-        $probabilidade = $resulpar/$totalresul;
-        $probabilidademporc = $probabilidade*100;
-
-        echo "A probabilidade de de sair um numéro par é $probabilidade ou $probabilidademporc% ";
+            echo "A probabilidade de de sair um numéro par é $probabilidade ou $probabilidademporc% ";
         ?>
     </fieldset>
 </body>
